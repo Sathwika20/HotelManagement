@@ -14,24 +14,16 @@ public class HotelReservationTest {
     Hotel BrideWood = new Hotel("BridgeWood", 160, 110, 60, 50);
     Hotel RidgeWood = new Hotel("RidgeWood", 220, 100, 150, 40);
 
-   @BeforeEach
-   public void addHotelTest() {
-       ArrayList<Hotel> hotel1 = hotelReservation.addHotel(LakeWood);
-       ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BrideWood);
-       ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
 
-       Assert.assertTrue(hotel1.contains(LakeWood));
-       Assert.assertTrue(hotel2.contains(BrideWood));
-       Assert.assertTrue(hotel3.contains(RidgeWood));
-   }
     @Test
-    public void findCheapestHotel() {
-        LocalDate d1 = LocalDate.of(2020, 9, 11);
-        LocalDate d2 = LocalDate.of(2020, 9, 12);
-        Hotel cheapestHotel = hotelReservation.getCheapestHotel(d1, d2);
-        Assert.assertEquals("LakeWood", cheapestHotel.name);
+    public void AbilityToAddTheHotel() {
+        HotelReservation hotelReservation = new HotelReservation();
+        ArrayList<Hotel> hotel1 = hotelReservation.addHotel(LakeWood);
+        ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BrideWood);
+        ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
+
+        Assert.assertTrue(hotel3.contains(LakeWood));
+        Assert.assertTrue(hotel2.contains(BrideWood));
+        Assert.assertTrue(hotel3.contains(RidgeWood));
     }
-
-
 }
-

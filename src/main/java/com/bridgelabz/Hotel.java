@@ -8,7 +8,7 @@ public class Hotel {
     public int weekEndRateForRewardCustomer;
 
 
-    public Hotel(String name, int weekDayRateForNormalCustomer, int weekDayRateForRewardCustomer, int weekEndRateForNormalCustomer,int weekEndRateForRewardCustomer) {
+    public Hotel(String name, int weekDayRateForNormalCustomer, int weekDayRateForRewardCustomer, int weekEndRateForNormalCustomer, int weekEndRateForRewardCustomer) {
 
         this.name = name;
         this.weekDayRateForNormalCustomer = weekDayRateForNormalCustomer;
@@ -28,8 +28,8 @@ public class Hotel {
                 '}';
     }
 
-
-
-
 }
+
+
+
 
