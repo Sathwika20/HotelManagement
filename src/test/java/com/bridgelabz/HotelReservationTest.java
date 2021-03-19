@@ -26,11 +26,12 @@ public class HotelReservationTest {
    }
     @Test
     public void findCheapestHotel() {
-        LocalDate startDate = LocalDate.of(2020, 9, 11);
-        LocalDate lastDate = LocalDate.of(2020, 9, 12);
-
-        hotelReservation.getCheapestHotel(startDate, lastDate);
+        LocalDate d1 = LocalDate.of(2020, 9, 11);
+        LocalDate d2 = LocalDate.of(2020, 9, 12);
+        Hotel cheapestHotel = hotelReservation.getCheapestHotel(d1, d2);
+        Assert.assertEquals("LakeWood", cheapestHotel.name);
     }
+
 
 }
 
