@@ -33,7 +33,7 @@ public class HotelReservationTest {
         ArrayList<Hotel> hotel1 = hotelReservation.addHotel(LakeWood);
         ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BrideWood);
         ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
-        
+
         LocalDate startDate = LocalDate.of(2020, 9, 10);
         LocalDate lastDate = LocalDate.of(2020, 9, 11);
 
