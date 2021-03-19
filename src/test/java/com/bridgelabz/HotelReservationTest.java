@@ -25,5 +25,20 @@ public class HotelReservationTest {
         Assert.assertTrue(hotel3.contains(LakeWood));
         Assert.assertTrue(hotel2.contains(BrideWood));
         Assert.assertTrue(hotel3.contains(RidgeWood));
+
+    }
+    @Test
+    public void AbilityToFindTheCheapestHotel() {
+        HotelReservation hotelReservation = new HotelReservation();
+        ArrayList<Hotel> hotel1 = hotelReservation.addHotel(LakeWood);
+        ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BrideWood);
+        ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
+        
+        LocalDate startDate = LocalDate.of(2020, 9, 10);
+        LocalDate lastDate = LocalDate.of(2020, 9, 11);
+
+        Hotel cheapestHotel = hotelReservation.getCheapestHotel(startDate, lastDate);
+        Assert.assertEquals("LakeWood", cheapestHotel.name);
+
     }
 }
