@@ -2,20 +2,23 @@ package com.bridgelabz;
 
 public class Hotel {
     String hotelName;
-    int ratesForRegularCustomer;
+    int weekDayRatesForRegularCustomer;
+    int weekEndRatesForRegularCustomer;
 
 
 
-    public Hotel(String hotelName, int ratesForRegularCustomer) {
+    public Hotel(String hotelName, int weekDayRatesForRegularCustomer, int weekEndRatesForRegularCustomer) {
         this.hotelName = hotelName;
-        this.ratesForRegularCustomer = ratesForRegularCustomer;
+        this.weekDayRatesForRegularCustomer = weekDayRatesForRegularCustomer;
+        this.weekEndRatesForRegularCustomer = weekEndRatesForRegularCustomer;
     }
 
     @Override
     public String toString() {
         return "Hotel{" +
                 "hotelName='" + hotelName + '\'' +
-                ", ratesForRegularCustomer=" + ratesForRegularCustomer +
+                ", weekDayRatesForRegularCustomer=" + weekDayRatesForRegularCustomer +
+                ", weekEndRatesForRegularCustomer=" + weekEndRatesForRegularCustomer +
                 '}';
     }
 }

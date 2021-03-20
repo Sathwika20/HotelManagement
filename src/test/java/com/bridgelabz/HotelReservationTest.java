@@ -3,17 +3,15 @@ package com.bridgelabz;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 
 public class HotelReservationTest {
     HotelReservation hotelReservation = new HotelReservation();
 
-   Hotel LakeWood = new Hotel("LakeWood", 110);
-   Hotel BridgeWood = new Hotel("BridgeWood", 160);
-   Hotel RidgeWood = new Hotel("RidgeWood",220);
+   Hotel LakeWood = new Hotel("LakeWood", 110,90);
+   Hotel BridgeWood = new Hotel("BridgeWood", 160,50);
+   Hotel RidgeWood = new Hotel("RidgeWood",220,150);
 
 
     @Test
