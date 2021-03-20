@@ -68,14 +68,16 @@ public class HotelReservation {
                 allMinimumHotels.put(hotel.hotelName, hotel.rate);
             }
         }
-           for(Hotel hotel : list) {
-               System.out.println("Hotel Name: " + hotel.hotelName + ", Rate: " + hotel.rate);
+        for(Hotel hotel : list) {
+            System.out.println("Hotel Name: " + hotel.hotelName + ", Rate: " + hotel.rate);
 
-           }
-           return result.rate;
+        }
+        return result.rate;
 
 
     }
+
+
 
 
 
