@@ -4,6 +4,7 @@ public class Hotel {
     String hotelName;
     int weekDayRatesForRegularCustomer;
     int weekEndRatesForRegularCustomer;
+    int rate;
 
 
 
@@ -11,6 +12,7 @@ public class Hotel {
         this.hotelName = hotelName;
         this.weekDayRatesForRegularCustomer = weekDayRatesForRegularCustomer;
         this.weekEndRatesForRegularCustomer = weekEndRatesForRegularCustomer;
+
     }
 
     @Override

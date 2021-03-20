@@ -33,11 +33,8 @@ public class HotelReservationTest {
         ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BridgeWood);
         ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
 
-        LocalDate d1 = LocalDate.of(2020, 9, 10);
-        LocalDate d2 = LocalDate.of(2020, 9, 11);
-
-        Hotel cheapestHotel = hotelReservation.getCheapestHotel(d1,d2);
-        Assert.assertEquals("LakeWood", cheapestHotel.hotelName);
+        long rate = hotelReservation.getCheapestHotel(LocalDate.parse("2020-10-10"), LocalDate.parse("2020-10-11"));
+        Assert.assertEquals(220, rate);
 
     }
 
