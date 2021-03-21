@@ -85,11 +85,13 @@ public class HotelReservation {
             }
         }
     }
-
-
-
-
-
+    public Hotel findBestRatedHotel(LocalDate startDate, LocalDate endDate) {
+        findCheapestHotelInGivenDateRange(startDate, endDate);
+        Hotel bestRated = Collections.max(list, Comparator.comparing(hotel -> hotel.rating));
+        System.out.println("Best Rated");
+        System.out.println("Hotel Name: " + bestRated.hotelName + ", Total Rate: " + bestRated.rate + "\n");
+        return bestRated;
+    }
 }
 
 
