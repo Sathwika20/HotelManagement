@@ -62,5 +62,48 @@ public class HotelReservationTest {
         Assert.assertEquals(200, result);
         hotelReservation.findByRating();
     }
+    @Test
+    public void findCheapestBestRatedHotelForRegular() {
+        HotelReservation hotelReservation = new HotelReservation();
+        ArrayList<Hotel> hotel1 = hotelReservation.addHotel(LakeWood);
+        ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BridgeWood);
+        ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
+
+        LocalDate startDate = LocalDate.parse("2020-09-11");
+        LocalDate endDate = LocalDate.parse("2020-09-12");
+        hotelReservation.findBestRatedHotelForRegular(startDate,endDate);
+
+    }
+    @Test
+    public void findBestRatedHotelForRegularCustomer() {
+        HotelReservation hotelReservation = new HotelReservation();
+        ArrayList<Hotel> hotel1 = hotelReservation.addHotel(LakeWood);
+        ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BridgeWood);
+        ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
+
+        LocalDate startDate = LocalDate.parse("2020-09-11");
+        LocalDate endDate = LocalDate.parse("2020-09-12");
+        hotelReservation.findCheapestBestRatedHotelForRegular(startDate, endDate);
+    }
+    @Test
+    public void findCheapestBestRatedHotelForReward() {
+        HotelReservation hotelReservation = new HotelReservation();
+        ArrayList<Hotel> hotel1 = hotelReservation.addHotel(LakeWood);
+        ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BridgeWood);
+        ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
+        LocalDate startDate = LocalDate.parse("2020-09-11");
+        LocalDate endDate = LocalDate.parse("2020-09-12");
+
+        try {
+            hotelReservation.findCheapestBestRatedHotelForReward(startDate,endDate);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid Entries");
+        }
+        catch (java.time.format.DateTimeParseException e) {
+            System.out.println("Invalid Entries");
+        }
+
+    }
+
 
 }

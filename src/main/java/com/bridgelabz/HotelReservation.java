@@ -85,13 +85,91 @@ public class HotelReservation {
             }
         }
     }
-    public Hotel findBestRatedHotel(LocalDate startDate, LocalDate endDate) {
+    public int cheapestHotelForRewardCustomer(LocalDate d1, LocalDate d2){
+        LocalDate date1 = LocalDate.now();
+        LocalDate date2 = date1.plusDays(1);
+
+        long numOfDays = ChronoUnit.DAYS.between(d1, d2);
+
+        List<LocalDate> listOfDates = Stream.iterate(d1, date -> date.plusDays(1))
+                .limit(numOfDays)
+                .collect(Collectors.toList());
+
+        System.out.println(listOfDates.size());
+
+        Iterator itr = listOfDates.iterator();
+        while (itr.hasNext()) {
+
+            DayOfWeek dayOfWeek2 = DayOfWeek.from((TemporalAccessor) itr.next());
+            if (dayOfWeek2.equals(DayOfWeek.SATURDAY) || dayOfWeek2.equals(DayOfWeek.SUNDAY)) {
+                for (Hotel hotel : list) {
+                    hotel.rate = +hotel.weekEndRatesForRewardCustomer;
+                }
+            } else {
+                for (Hotel hotel : list) {
+                    hotel.rate = +hotel.weekDayRatesForRewardCustomer;
+                }
+            }
+        }
+        for (Hotel hotel : list) {
+            System.out.println(hotel.hotelName + " " + hotel.rate);
+        }
+        Hotel result2 = list.get(0);
+        for (int i = 0; i < list.size(); i++) {
+            if (result2.rate > list.get(i).rate) {
+                result2 = list.get(i);
+                allMinimumHotels.put(list.get(i).hotelName, list.get(i).rate);
+            }
+        }
+        allMinimumHotels.put(result2.hotelName, result2.rate);
+        for (Hotel hotel : list) {
+            if (hotel.rate == result2.rate) {
+                allMinimumHotels.put(hotel.hotelName, hotel.rate);
+            }
+        }
+        for(Hotel hotel : list) {
+            System.out.println("Hotel Name: " + hotel.hotelName + ", Rate: " + hotel.rate);
+
+        }
+        return result2.rate;
+
+    }
+    public Map<String, Double> findCheapestBestRatedHotelForReward(LocalDate d1, LocalDate d2) {
+        LocalDate startDate = LocalDate.now();
+        LocalDate endDate = startDate.plusDays(1);
+        long numOfDays = ChronoUnit.DAYS.between(startDate, endDate);
+        Map<String, Double> rewardedCustomerHotelsRating = new HashMap<>();
+        Double maxValueInMap = (Collections.max(rewardedCustomerHotelsRating.values()));
+        System.out.println("\nThe Cheapest Best Rated Hotel is ::");
+        for (Map.Entry<String, Double> entry : rewardedCustomerHotelsRating.entrySet()) {
+            if (entry.getValue().equals(maxValueInMap)) {
+                Hotel result2 = list.get(0);
+                System.out.println(entry.getKey() + ", Rating: " + entry.getValue() + " And Total Rates: " + result2.totalRewardedRate + "\n");
+            }
+        }
+        return rewardedCustomerHotelsRating;
+    }
+        public Hotel findBestRatedHotelForRegular(LocalDate startDate, LocalDate endDate) {
         findCheapestHotelInGivenDateRange(startDate, endDate);
         Hotel bestRated = Collections.max(list, Comparator.comparing(hotel -> hotel.rating));
         System.out.println("Best Rated");
         System.out.println("Hotel Name: " + bestRated.hotelName + ", Total Rate: " + bestRated.rate + "\n");
         return bestRated;
     }
+    public void findCheapestBestRatedHotelForRegular(LocalDate startDate, LocalDate endDate) {
+        HashMap<String, Double> regularRateHotelsRating = new HashMap<>();
+        Double maxValueInMap = (Collections.max(regularRateHotelsRating.values()));
+        System.out.println("The Cheapest Best Rated Hotel is ::");
+        for (Map.Entry<String, Double> entry : regularRateHotelsRating.entrySet()) {
+            if (entry.getValue().equals(maxValueInMap)) {
+                Hotel result1 = list.get(0);
+                System.out.println(entry.getKey() + ", Rating: " + entry.getValue() + " And Total Rates: " + result1.totalRegularRate +"\n");
+            }
+        }
+    }
+
+
+
 }
 
 

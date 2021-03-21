@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 public class Hotel {
+
     String hotelName;
     int weekDayRatesForRegularCustomer;
     int weekEndRatesForRegularCustomer;
@@ -8,6 +9,8 @@ public class Hotel {
     int weekEndRatesForRewardCustomer;
     int rating;
     int rate;
+    int totalRewardedRate;
+    int totalRegularRate;
 
 
 
