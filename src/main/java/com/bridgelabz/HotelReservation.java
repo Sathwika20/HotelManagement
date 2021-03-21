@@ -141,12 +141,10 @@ public class HotelReservation {
         Map<String, Double> rewardedCustomerHotelsRating = new HashMap<>();
         Double maxValueInMap = (Collections.max(rewardedCustomerHotelsRating.values()));
         System.out.println("\nThe Cheapest Best Rated Hotel is ::");
-        for (Map.Entry<String, Double> entry : rewardedCustomerHotelsRating.entrySet()) {
-            if (entry.getValue().equals(maxValueInMap)) {
-                Hotel result2 = list.get(0);
-                System.out.println(entry.getKey() + ", Rating: " + entry.getValue() + " And Total Rates: " + result2.totalRewardedRate + "\n");
-            }
-        }
+        System.out.println("\nThe Cheapest Best Rated Hotel is ::");
+        Hotel result2 = list.get(0);
+        rewardedCustomerHotelsRating.entrySet().stream().filter(t -> t.getValue().equals(maxValueInMap))
+                .forEach(t -> System.out.println(t.getKey() + ", Rating: " + t.getValue() + " And Total Rates: " + result2.totalRewardedRate +"\n"));
         return rewardedCustomerHotelsRating;
     }
         public Hotel findBestRatedHotelForRegular(LocalDate startDate, LocalDate endDate) {
@@ -160,13 +158,11 @@ public class HotelReservation {
         HashMap<String, Double> regularRateHotelsRating = new HashMap<>();
         Double maxValueInMap = (Collections.max(regularRateHotelsRating.values()));
         System.out.println("The Cheapest Best Rated Hotel is ::");
-        for (Map.Entry<String, Double> entry : regularRateHotelsRating.entrySet()) {
-            if (entry.getValue().equals(maxValueInMap)) {
-                Hotel result1 = list.get(0);
-                System.out.println(entry.getKey() + ", Rating: " + entry.getValue() + " And Total Rates: " + result1.totalRegularRate +"\n");
-            }
-        }
+        Hotel result1 = list.get(0);
+        regularRateHotelsRating.entrySet().stream().filter(t -> t.getValue().equals(maxValueInMap))
+                .forEach(t -> System.out.println(t.getKey() + ", Rating: " + t.getValue() + " And Total Rates: " + result1.totalRegularRate +"\n"));
     }
+
 
 
 
