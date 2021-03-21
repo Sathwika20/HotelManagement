@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class HotelReservationTest {
     HotelReservation hotelReservation = new HotelReservation();
 
-   Hotel LakeWood = new Hotel("LakeWood", 110,90,3);
-   Hotel BridgeWood = new Hotel("BridgeWood", 160,50,4);
-   Hotel RidgeWood = new Hotel("RidgeWood",220,150,5);
+   Hotel LakeWood = new Hotel("LakeWood", 110,80,90, 80,3);
+   Hotel BridgeWood = new Hotel("BridgeWood", 160,60,110,50,4);
+   Hotel RidgeWood = new Hotel("RidgeWood",220,150,100,40,5);
 
 
     @Test
