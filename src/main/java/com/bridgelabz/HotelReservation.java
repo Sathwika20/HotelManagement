@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 public class HotelReservation {
      static ArrayList<Hotel> list = new ArrayList<>();
     Map<String,Integer> allMinimumHotels = new HashMap<>();
+    Map<String, Double> allCheapRateHotelsRating = new HashMap<>();
 
     public ArrayList<Hotel> addHotel(Hotel hotel) {
         list.add(hotel);
@@ -55,16 +56,16 @@ public class HotelReservation {
         for (Hotel hotel : list) {
             System.out.println(hotel.hotelName + " " + hotel.rate);
         }
-        Hotel result = list.get(0);
+        Hotel result1 = list.get(0);
         for (int i = 0; i < list.size(); i++) {
-            if (result.rate > list.get(i).rate) {
-                result = list.get(i);
+            if (result1.rate > list.get(i).rate) {
+                result1 = list.get(i);
                 allMinimumHotels.put(list.get(i).hotelName, list.get(i).rate);
             }
         }
-        allMinimumHotels.put(result.hotelName, result.rate);
+        allMinimumHotels.put(result1.hotelName, result1.rate);
         for (Hotel hotel : list) {
-            if (hotel.rate == result.rate) {
+            if (hotel.rate == result1.rate) {
                 allMinimumHotels.put(hotel.hotelName, hotel.rate);
             }
         }
@@ -72,9 +73,17 @@ public class HotelReservation {
             System.out.println("Hotel Name: " + hotel.hotelName + ", Rate: " + hotel.rate);
 
         }
-        return result.rate;
+        return result1.rate;
 
-
+    }
+    public void findByRating() {
+        Double maxValueInMap = (Collections.max(allCheapRateHotelsRating.values()));
+        for (Map.Entry<String, Double> entry : allCheapRateHotelsRating.entrySet()) {
+            if(entry.getValue().equals(maxValueInMap)){
+                Hotel result1 = list.get(0);
+                System.out.println(entry.getKey() + ", Rating: " + entry.getValue() + " And Total Rates: " + result1.rate );
+            }
+        }
     }
 
 

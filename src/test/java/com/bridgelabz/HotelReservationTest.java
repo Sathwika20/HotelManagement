@@ -49,5 +49,18 @@ public class HotelReservationTest {
         int result = hotelReservation.findCheapestHotelInGivenDateRange(d1, d2);
         Assert.assertEquals(200, result);
     }
+    @Test
+    public void CheapestHotelInGivenDatesByRating() {
+        HotelReservation hotelReservation = new HotelReservation();
+        ArrayList<Hotel> hotel1 = hotelReservation.addHotel(LakeWood);
+        ArrayList<Hotel> hotel2 = hotelReservation.addHotel(BridgeWood);
+        ArrayList<Hotel> hotel3 = hotelReservation.addHotel(RidgeWood);
+
+        LocalDate startDate = LocalDate.parse("2020-09-11");
+        LocalDate endDate = LocalDate.parse("2020-09-12");
+        int result = hotelReservation.findCheapestHotelInGivenDateRange(startDate, endDate);
+        Assert.assertEquals(200, result);
+        hotelReservation.findByRating();
+    }
 
 }

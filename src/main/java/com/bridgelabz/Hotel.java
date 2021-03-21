@@ -9,11 +9,11 @@ public class Hotel {
 
 
 
-    public Hotel(String hotelName, int weekDayRatesForRegularCustomer, int weekEndRatesForRegularCustomer, int rate) {
+    public Hotel(String hotelName, int weekDayRatesForRegularCustomer, int weekEndRatesForRegularCustomer, int rating) {
         this.hotelName = hotelName;
         this.weekDayRatesForRegularCustomer = weekDayRatesForRegularCustomer;
         this.weekEndRatesForRegularCustomer = weekEndRatesForRegularCustomer;
-        this.rate = rate;
+        this.rate = rating;
 
     }
 
@@ -23,7 +23,7 @@ public class Hotel {
                 "hotelName='" + hotelName + '\'' +
                 ", weekDayRatesForRegularCustomer=" + weekDayRatesForRegularCustomer +
                 ", weekEndRatesForRegularCustomer=" + weekEndRatesForRegularCustomer +
-                ", rate=" + rate +
+                ", rating=" + rating +
                 '}';
     }
 }
